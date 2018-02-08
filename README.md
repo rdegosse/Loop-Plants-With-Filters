@@ -25,59 +25,60 @@ Loop plants with filters, execute sequences and save meta data (FARMBOT_OS 6 min
 
 -- input ---
 
-  {"name": "pointname", "label": "Filter by plant name", "value": "*"},
+  {"name": "pointname", "label": "Filter by plant name", "value": "*"}
 -> Filter by plant name (equal/Not case sensitive)
 -> default : * -> all plant name 
   
-  {"name": "openfarm_slug", "label": "Filter by Openfarm slug name", "value": "*"},
+  {"name": "openfarm_slug", "label": "Filter by Openfarm slug name", "value": "*"}
 -> Filter by Openfarm type (equal/Not case sensitive)
 -> default : * -> all openfarm_slug
 
-  {"name": "age_min_day", "label": "Filter by plant age (minimum days)", "value": "-1"},
+  {"name": "age_min_day", "label": "Filter by plant age (minimum days)", "value": "-1"}
 -> Filter by minimum plant age in days
 -> default : -1 -> to be sure with time zone and large range..
   
-  {"name": "age_max_day", "label": "Filter by plant age (maximum days)", "value": "36500"},
+  {"name": "age_max_day", "label": "Filter by plant age (maximum days)", "value": "36500"}
 -> Filter by maximum plant age in days
 -> default : 36500 -> a plant of a century...
   
-  {"name": "filter_meta_key", "label": "Filter by meta data : key", "value": "None"},
+  {"name": "filter_meta_key", "label": "Filter by meta data : key", "value": "None"}
 -> Filter by meta data - KEY
 -> default : None -> no meta filter
   
-  {"name": "filter_meta_value", "label": "Filter by meta data : value", "value": "None"},
+  {"name": "filter_meta_value", "label": "Filter by meta data : value", "value": "None"}
 -> Filter by meta data - VALUE (equal/Not case sensitive)
 -> default : None -> no meta filter
 
-  {"name": "sequence_init", "label": "Init Sequence Name (one time)", "value": "None"},
+  {"name": "sequence_init", "label": "Init Sequence Name (one time)", "value": "None"}
 -> Execute sequence one time, on start. Sequence Name (equal/Not case sensitive)
 -> default : None -> no execute sequence
 
-  {"name": "sequence_beforemove", "label": "Sequence name Before Next Move  (each plant)", "value": "None"},
+  {"name": "sequence_beforemove", "label": "Sequence name Before Next Move  (each plant)", "value": "None"}
 -> Execute sequence before each move. Sequence Name (equal/Not case sensitive)
 -> default : None -> no execute sequence
   
-  {"name": "sequence_aftermove", "label": "Sequence Name After Move  (each plant)", "value": "None"},
+  {"name": "sequence_aftermove", "label": "Sequence Name After Move  (each plant)", "value": "None"}
 -> Execute sequence after each move. Sequence Name (equal/Not case sensitive)
 -> default : None -> no execute sequence
 
-  {"name": "sequence_end", "label": "End Sequence Name (one time)", "value": "None"},
+  {"name": "sequence_end", "label": "End Sequence Name (one time)", "value": "None"}
 -> Execute sequence one time, at the end. Sequence Name (equal/Not case sensitive)
 -> default : None -> no execute sequence
 
-  {"name": "save_meta_key", "label": "Save in meta data : key", "value": "None"},
+  {"name": "save_meta_key", "label": "Save in meta data : key", "value": "None"}
 -> Save meta data after sequence_aftermove - KEY
 -> default : None -> no save meta data
 
-  {"name": "save_meta_value", "label": "Save in meta data : value", "value": "None"},
+  {"name": "save_meta_value", "label": "Save in meta data : value", "value": "None"}
 -> Save meta data after sequence_aftermove - VALUE
 -> default : None -> no save meta data
+-> BE CAREFUL : can be
 
-  {"name": "default_z", "label": "default Z axis value when moving", "value": 0},
+  {"name": "default_z", "label": "default Z axis value when moving", "value": 0}
 -> default z axis coordinate when moving
 -> default : 0 -> Z axis coordinate
 
-  {"name": "default_speed", "label": "default speed value when moving", "value": 800},
+  {"name": "default_speed", "label": "default speed value when moving", "value": 800}
 -> default speed when moving
 -> default : 800 -> default value in celery script
 
