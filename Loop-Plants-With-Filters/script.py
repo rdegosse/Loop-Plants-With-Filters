@@ -1,4 +1,4 @@
-
+import os
 from FARMWARE import MyFarmware
 from CeleryPy import log
 
@@ -6,7 +6,8 @@ from CeleryPy import log
 
 if __name__ == "__main__":
 
-    FARMWARE_NAME = "Loop-Plants-With-Filters"
+    #FARMWARE_NAME = "Loop-Plants-With-Filters"
+    FARMWARE_NAME = ((__file__.split(os.sep))[len(__file__.split(os.sep))-3]).replace('-master','')
 
     log('Start...', message_type='info', title=FARMWARE_NAME)
     
