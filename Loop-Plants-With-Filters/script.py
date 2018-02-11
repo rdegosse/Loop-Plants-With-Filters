@@ -1,6 +1,7 @@
 import os
 from FARMWARE import MyFarmware
 from CeleryPy import log
+import sys
 
 
 
@@ -11,6 +12,8 @@ if __name__ == "__main__":
 
     log('Start...', message_type='info', title=FARMWARE_NAME)
     
+    reload(sys)
+    sys.setdefaultencoding('utf8') #force utf8 for celerypy return code
     
     try:
         farmware = MyFarmware(FARMWARE_NAME)
