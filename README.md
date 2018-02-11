@@ -25,6 +25,9 @@ Loop plants with filters, execute sequences and save meta data (FARMBOT_OS 6 min
 
 -- input ---
 
+  {"name": "title", "label": "Title", "value": "-"},
+-> Title used for description only
+
   {"name": "pointname", "label": "Filter by plant name", "value": "*"}
 -> Filter by plant name (equal/Not case sensitive)
 -> default : * -> all plant name 
