@@ -2,6 +2,10 @@
 """Celery Py.
 
 Python wrappers for FarmBot Celery Script JSON nodes.
+
+rdegosse - ADD From Original CeleryScript
+return ret in wrapper function
+add config_update
 """
 import os
 import json
@@ -396,3 +400,26 @@ def wait(milliseconds=0):
     args['milliseconds'] = milliseconds
     _wait = create_node(kind='wait', args=args)
     return _wait
+
+@_print_json
+def config_update(config_dict,package="arduino_firmware"):
+    """Celery Script to change mcu_params.
+
+    Kind:
+        config_update
+    Args:
+        package: arduino_firmware
+    Body:
+        Kind: pair
+        Args:
+            label: param_label
+            value: param_value
+    """
+    args = {}
+    args['package'] = package
+    _config_update = create_node(kind='config_update', args=args)
+    body = []
+    for e in config_dict:
+        body.append(create_node(kind='pair', args=(create_pair(label=e, value=config_dict[e]))))
+    _config_update['body'] = body
+    return _config_update

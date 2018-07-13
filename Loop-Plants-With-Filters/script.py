@@ -12,9 +12,12 @@ if __name__ == "__main__":
 
     log('Start...', message_type='info', title=FARMWARE_NAME)
     
-    reload(sys)
-    sys.setdefaultencoding('utf8') #force utf8 for celerypy return code
-    
+    try:
+        reload(sys)
+        sys.setdefaultencoding('utf8') #force utf8 for celerypy return code
+    except:
+        pass
+
     try:
         farmware = MyFarmware(FARMWARE_NAME)
     except Exception as e:
@@ -26,7 +29,7 @@ if __name__ == "__main__":
         except Exception as e:
             log(e ,message_type='error', title=FARMWARE_NAME + " : run" )
             raise Exception(e)
-    
+
 
     log('End...', message_type='info', title=FARMWARE_NAME)
 
