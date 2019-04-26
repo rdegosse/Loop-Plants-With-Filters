@@ -255,7 +255,7 @@ class MyFarmware():
                     
     def save_plant_stage(self,point):
         if str(self.input_save_plant_stage).lower() != 'none' :
-            if str(self.input_save_plant_stage).lower() == 'planned' or str(self.input_save_plant_stage).lower() == 'planted' or str(self.input_save_plant_stage).lower() == 'harvested':
+            if str(self.input_save_plant_stage).lower() == 'planned' or str(self.input_save_plant_stage).lower() == 'planted' or str(self.input_save_plant_stage).lower() == 'sprouted' or str(self.input_save_plant_stage).lower() == 'harvested':
                 point['plant_stage'] = str(self.input_save_plant_stage).lower()
                 if str(self.input_save_plant_stage).lower() == 'planted':
                     point['planted_at'] = str(datetime.datetime.utcnow())
