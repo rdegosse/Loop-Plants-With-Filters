@@ -254,16 +254,19 @@ class MyFarmware():
                 self.api.api_put(endpoint=endpoint, data=point)
                     
     def save_plant_stage(self,point):
-        if str(self.input_save_plant_stage).lower() == 'planned' or str(self.input_save_plant_stage).lower() == 'planted' or str(self.input_save_plant_stage).lower() == 'harvested':
-            point['plant_stage'] = str(self.input_save_plant_stage).lower()
-            if str(self.input_save_plant_stage).lower() == 'planted':
-                point['planted_at'] = str(datetime.datetime.utcnow())
-            if self.input_debug >= 1: log('Save Plant Stage: ' + str(point) , message_type='debug', title=str(self.farmwarename) + ' : save_plant_stage')
-            if self.input_debug < 2 :
-                endpoint = 'points/{}'.format(point['id'])
-                self.api.api_put(endpoint=endpoint, data=point)
+        if str(self.input_save_plant_stage).lower() != 'none' :
+            if str(self.input_save_plant_stage).lower() == 'planned' or str(self.input_save_plant_stage).lower() == 'planted' or str(self.input_save_plant_stage).lower() == 'harvested':
+                point['plant_stage'] = str(self.input_save_plant_stage).lower()
+                if str(self.input_save_plant_stage).lower() == 'planted':
+                    point['planted_at'] = str(datetime.datetime.utcnow())
+                if self.input_debug >= 1: log('Save Plant Stage: ' + str(point) , message_type='debug', title=str(self.farmwarename) + ' : save_plant_stage')
+                if self.input_debug < 2 :
+                    endpoint = 'points/{}'.format(point['id'])
+                    self.api.api_put(endpoint=endpoint, data=point)
+            else:
+                log('Save Plant Stage: wrong value :' + str(point) , message_type='error', title=str(self.farmwarename) + ' : save_plant_stage')
         else:
-            log('Save Plant Stage: wrong value :' + str(point) , message_type='error', title=str(self.farmwarename) + ' : save_plant_stage')
+            if self.input_debug >= 1: log('Plant Stage: Nothing to save' , message_type='debug', title=str(self.farmwarename) + ' : save_plant_stage')
     
 
     def loop_points(self):
